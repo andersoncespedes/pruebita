@@ -4,81 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilos.css">
+
 </head>
 <body>
-  <form id="task-form">
-    <label for="">Pregunta</label>
-    <input type="text" name="pregunta" placeholder="Como">
-    <label for="">Respuesta A</label>
-    <input type="text" name="a" placeholder="Nombre de la tarea" required>
-    <label for="">Respuesta B</label>
-    <input type="text" name="b" placeholder="Descripción de la tarea" required>
-    <label for="">Respuesta C</label>
-    <input type="text" name="c" placeholder="Descripción de la tarea" required>
-    <select name="correcta" id="">
-      <option value="a">a</option>
-      <option value="b">b</option>
-      <option value="c">c</option>
-    </select>
-    <button type="submit" name="subir">Agregar Quiz</button>
-  </form>
-
-  <div id="quiz-list"></div>
-  <script>
-    class Quiz{
-      constructor(formulario){
-        this.pregunta = formulario.pregunta.value;
-        this.a = formulario.a.value;
-        this.b = formulario.b.value;
-        this.c = formulario.c.value;
-        this.correcta = formulario.correcta.value;
-      }
-      accion(){
-        return this.c;
-      }
-    }
-    class QuizManager{
-      constructor(){
-        this._Quizes = [];
-      }
-       addQuiz(param){
-        this._Quizes.push(param)
-      }
-    }
-    const form = document.getElementById("task-form");
-    const quizManager = new QuizManager();
-    const quizLista = document.getElementById("quiz-list");
-    form["subir"].addEventListener("click", (ev) => {
-      ev.preventDefault()
-      const quiz = new Quiz(form);
-
-      quizManager.addQuiz(quiz);
-      console.log(quizManager._Quizes);
-      quizRender(form);
-      form.reset();
-    });
-    function quizRender(param){
-      quizLista.innerHTML += `
-        <div>
-          Pregunta : ${param.pregunta.value}
-          <form id = "formulario${quizManager._Quizes.length}">
-            <label>${param.a.value} </label>
-            <input type = "radio" name = "respuesta" value="a" onchange = "verificar(this)">
-            <label>${param.b.value} </label>
-            <input type = "radio" name = "respuesta" value="b" onchange = "verificar(this)">
-            <label>${param.c.value} </label>
-            <input type = "radio" name = "respuesta" value="c" onchange = "verificar(this)">
-          </form>
-        </div>
-      `;
-    }
-    function verificar(param){
-      let id = parseInt(param.parentNode.getAttribute("id").match(/[0-9]/gi)) - 1;
-      if(quizManager._Quizes[id].correcta == param.value){
-        console.log("hola");
-      }
-    }
-  </script>
+  <div class="contenedor-quiz">
+    <div class="form-quiz">
+        <form id="task-form">
+          <div class="form-group">
+            <label for="">Pregunta</label>
+            <input type="text" name="pregunta" placeholder="Escriba una pregunta" class="form-control">  
+          </div>
+          <div class="form-group">
+            <label for="">Respuesta A</label>
+            <input type="text" name="a" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group">
+            <label for="">Respuesta B</label>
+            <input type="text" name="b" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group">
+            <label for="">Respuesta C</label>
+            <input type="text" name="c" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group">
+            <label for="">Respuesta D</label>
+            <input type="text" name="d" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group">
+            <select name="correcta" id="" class="form-control">
+              <option value="a">a</option>
+              <option value="b">b</option>
+              <option value="c">c</option>
+              <option value="d">d</option>
+            </select>   
+          </div>
+       
+          <button type="submit" name="subir">Agregar Quiz</button>
+      </form>   
+    </div>
+   <div id="quiz-list" class="quiz-list"></div> 
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
 
