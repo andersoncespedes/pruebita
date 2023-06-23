@@ -57,7 +57,8 @@ function quizRender(param){
   `;
 }
 function verificar(param){
-  let id = parseInt(param.parentNode.getAttribute("id").match(/[0-9]/gi)) - 1;
+  let id = parseInt(param.parentNode.parentNode.getAttribute("id").match(/[0-9]/gi)) - 1;
+
   quizManager.quizes[id].responder(); 
   console.log(param.value);
   if(quizManager.quizes[id].correcta == param.value){
@@ -66,7 +67,7 @@ function verificar(param){
   else{
     alert("respuesta incorrecta");
   } 
-  [...param.parentNode].map(e => {
+  [...param.parentNode.parentNode].map(e => {
       e.disabled = "true";
     })
   console.log(quizManager);
