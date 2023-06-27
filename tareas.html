@@ -9,30 +9,35 @@
 
 </head>
 <body>
-  <div class="contenedor-quiz">
+  <div id="contenedor_hidden-quiz" class="contenedor-quiz">
     <div class="form-quiz">
-        <form id="task-form">
-          <div class="form-group">
+      <div class="titulo">
+        <h2>Editar Quiz</h2>
+      </div>
+        <form id="edit-form" class="row">
+          <input type="hidden" name="detec" id="detec" >
+          <div class="form-group col-md-12">
             <label for="">Pregunta</label>
             <input type="text" name="pregunta" placeholder="Escriba una pregunta" class="form-control">  
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-3">
             <label for="">Respuesta A</label>
             <input type="text" name="a" placeholder="Nombre de la tarea" required class="form-control">  
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-3">
             <label for="">Respuesta B</label>
             <input type="text" name="b" placeholder="Nombre de la tarea" required class="form-control">  
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-3">
             <label for="">Respuesta C</label>
             <input type="text" name="c" placeholder="Nombre de la tarea" required class="form-control">  
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-3">
             <label for="">Respuesta D</label>
             <input type="text" name="d" placeholder="Nombre de la tarea" required class="form-control">  
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-12">
+            <label for="">Respuesta Correcta</label>
             <select name="correcta" id="" class="form-control">
               <option value="a">a</option>
               <option value="b">b</option>
@@ -40,14 +45,61 @@
               <option value="d">d</option>
             </select>   
           </div>
-       
-          <button type="submit" name="subir">Agregar Quiz</button>
+          <button type="submit" name="subir" class="btn btn-warning">Editar Quiz</button>
+          <button type="button" name="back" class="btn btn-info" onclick="volver()">Volver</button>
+
       </form>   
     </div>
   </div>
-  <div id="quiz-list" class="quiz-list row">
+  <div class="contenedor-quiz" id="cont-normal">
+    <div class="form-quiz">
+      <div class="titulo">
+        <h2>Agregar Quiz</h2>
+      </div>
+        <form id="task-form" class="row">
+          <div class="form-group col-md-12">
+            <label for="">Pregunta</label>
+            <input type="text" name="pregunta" placeholder="Escriba una pregunta" class="form-control">  
+          </div>
+          <div class="form-group col-md-3">
+            <label for="">Respuesta A</label>
+            <input type="text" name="a" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group col-md-3">
+            <label for="">Respuesta B</label>
+            <input type="text" name="b" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group col-md-3">
+            <label for="">Respuesta C</label>
+            <input type="text" name="c" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group col-md-3">
+            <label for="">Respuesta D</label>
+            <input type="text" name="d" placeholder="Nombre de la tarea" required class="form-control">  
+          </div>
+          <div class="form-group col-md-12">
+            <label for="">Respuesta Correcta</label>
+            <select name="correcta" id="" class="form-control">
+              <option value="a">a</option>
+              <option value="b">b</option>
+              <option value="c">c</option>
+              <option value="d">d</option>
+            </select>   
+          </div>
+          <button type="submit" name="subir" class="btn btn-success">Agregar Quiz</button>
+          <button type="button" name="subir" class="btn btn-info" onclick="verQuiz(this)">Ver Quiz</button>
 
-    
+      </form>   
+    </div>
+  </div>
+  <div  class="quiz-list">
+    <div class="titulo">
+      <h2>Listas de Quiz</h2>
+    </div>
+    <div id="quiz-list" class="row">
+
+    </div>
+    <button type="button" onclick="verQuiz(this)" id="menos" class="btn btn-warning" style="display: none;">Volver a estado de edicion</button>
   </div> 
   <script src="script.js"></script>
 </body>

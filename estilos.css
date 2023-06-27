@@ -6,15 +6,27 @@
 body{
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100%;
+    background-position: 100%;
+
+    background: rgb(99, 233, 99);
+
+}
+.pasar{
+    margin:5px;
 }
 .contenedor-quiz{
     margin: auto;
-    width: 50%;
+    width: 70%;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 0 10px black;
+    display: flex;
+}
+.titulo{
+    width: 100%;
+    text-align: center;
 }
 .contenedor-quiz #task-form{
     width: 100%;
@@ -22,11 +34,17 @@ body{
 .quiz-list{
     background-color: white;
     width: 70%;
-    margin: auto;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    padding: 10px;
 }
 .contenedor-quiz #task-form input{
     width: 100%;
 }
 .form-group{
-    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#contenedor_hidden-quiz{
+    display: none;
 }
